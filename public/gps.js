@@ -38,7 +38,7 @@ navigator.geolocation.getCurrentPosition((position) => {
   console.log("speed: " + position.coords.speed)
   console.log("accuracy: " + position.coords.accuracy)
   console.log("heading: " + position.coords.heading)
-  document.getElementById("location").innerHTML = "latitude: " + position.coords.latitude + "<br>"
+  document.getElementById("location").innerHTML = "<p>latitude: " + position.coords.latitude + "<br>"
   + "longitude: " + position.coords.longitude + "<br>" + "speed: " + position.coords.speed + "<br>" 
-  + "accuracy: " + position.coords.accuracy + "<br>" + "heading: " + position.coords.heading;
+  + "accuracy: " + position.coords.accuracy + "<br>" + "heading: " + position.coords.heading +"</p>";
 })

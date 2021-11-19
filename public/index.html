@@ -1,49 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Camera</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
   <link rel="manifest" href="/manifest.json">
-  <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-            .then(() => console.log("Service Worker Registered"))
-            .catch(e => console.log(e));
-    }
-</script>
+    <title>Document</title>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<div class="display-cover">
-    <video autoplay></video>
-    <canvas class="d-none"></canvas>
-
-    <div class="video-options">
-        <select name="" id="" class="custom-select">
-            <option value="">Select camera</option>
-        </select>
-    </div>
-
-    <img class="screenshot-image d-none" alt="">
-
-    <div class="controls">
-        <button class="btn btn-danger play" title="Play"><i data-feather="play-circle"></i></button>
-        <button class="btn btn-info pause d-none" title="Pause"><i data-feather="pause"></i></button>
-        <button class="btn btn-outline-success screenshot d-none" title="ScreenShot"><i data-feather="image"></i></button>
-    </div>
-</div>
-<div id="location"></div>
-<div>
-<a href="mobile.html">mobile</a><br>
-<a href="example.html">example</a>
-</div>
-
-<!-- partial -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js'></script><script  src="./script.js"></script>
-    <script src="gps.js"></script>
+    <ons-page>
+        <ons-toolbar>
+          <div class="center">Tab 1</div>
+        </ons-toolbar>
+      
+        <ons-tabbar swipeable position="auto">
+          <ons-tab page="tab1.html" label="Tab 1" icon="ion-ios-home, material:md-home" badge="7" active>
+          </ons-tab>
+          <ons-tab page="tab2.html" label="Tab 2" icon="md-settings" active-icon="md-face">
+          </ons-tab>
+        </ons-tabbar>
+      </ons-page>
+      
+      <template id="tab1.html">
+        <ons-page id="Tab1">
+          <p style="text-align: center;">
+            This is the first page.
+          </p>
+        </ons-page>
+      </template>
+      
+      <template id="tab2.html">
+        <ons-page id="Tab2">
+          <p style="text-align: center;">
+            This is the second page.
+          </p>
+        </ons-page>
+      </template>
+    <script src="script.js"></script>
 </body>
 </html>
