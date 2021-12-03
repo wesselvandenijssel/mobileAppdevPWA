@@ -1,43 +1,3 @@
-var map;
-var layer;
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
-}
-
-function showPosition(position) {
-    console.log("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
-    map = new ol.Map({
-        target: 'map',
-        layers: [
-            new ol.layer.Tile({
-                source: new ol.source.OSM()
-            })
-        ],
-        view: new ol.View({
-            center: ol.proj.fromLonLat([position.coords.longitude, position.coords.latitude]),
-            zoom: 13
-        })
-    });
-
-    layer = new ol.layer.Vector({
-        source: new ol.source.Vector({
-            features: [
-                new ol.Feature({
-                    geometry: new ol.geom.Point(ol.proj.fromLonLat([position.coords.longitude, position.coords.latitude]))
-                })
-            ]
-        })
-    });
-    map.addLayer(layer);
-}
-
-// getLocation()
-window.onload= function(){
 const startRecording = document.querySelector('#startRecording');
 const stopRecording = document.querySelector('#stopRecording');
 const playRecorded = document.querySelector('#playRecorded');
@@ -48,7 +8,6 @@ const phaserInput = document.querySelector('#phaser');
 const phaserLabel = document.querySelector('#phaserLabel');
 const constraints = { audio: true };
 
-console.log(pitchInput)
 let pitchShift;
 let phaser;
 let player;
@@ -128,5 +87,4 @@ if (navigator.mediaDevices.getUserMedia) {
 
 } else {
     console.log('getUserMedia not supported on your browser!');
-}
 }
